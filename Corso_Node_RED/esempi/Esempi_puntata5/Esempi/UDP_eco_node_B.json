@@ -1,0 +1,44 @@
+[
+    {
+        "id": "dde6712d4f45939a",
+        "type": "tab",
+        "label": "UDP Example",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "8e373803150248be",
+        "type": "udp in",
+        "z": "dde6712d4f45939a",
+        "name": "UDP Receive",
+        "iface": "",
+        "port": "3000",
+        "ipv": "udp4",
+        "multicast": "false",
+        "group": "",
+        "datatype": "utf8",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "f59e9c2631f83f68"
+            ]
+        ]
+    },
+    {
+        "id": "f59e9c2631f83f68",
+        "type": "udp out",
+        "z": "dde6712d4f45939a",
+        "name": "UDP Send",
+        "addr": "192.168.1.140",
+        "iface": "",
+        "port": "3000",
+        "ipv": "udp4",
+        "outport": "",
+        "base64": false,
+        "multicast": "false",
+        "x": 330,
+        "y": 80,
+        "wires": []
+    }
+]

@@ -1,0 +1,90 @@
+[
+    {
+        "id": "89e78f52308602c8",
+        "type": "tab",
+        "label": "MQTT - Subscriber",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3134bece31a17f2c",
+        "type": "aedes broker",
+        "z": "89e78f52308602c8",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": null,
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "74b0cce5bd914cb6",
+        "type": "mqtt in",
+        "z": "89e78f52308602c8",
+        "name": "",
+        "topic": "Led",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "df7d899faadb9501",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "16d9a5bc90f66464"
+            ]
+        ]
+    },
+    {
+        "id": "16d9a5bc90f66464",
+        "type": "rpi-gpio out",
+        "z": "89e78f52308602c8",
+        "name": "",
+        "pin": "12",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 280,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "df7d899faadb9501",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

@@ -1,0 +1,109 @@
+[
+    {
+        "id": "fca61f181c35d364",
+        "type": "tab",
+        "label": "TCP Example",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4365352701bedd99",
+        "type": "function",
+        "z": "fca61f181c35d364",
+        "name": "Concat",
+        "func": "msg.payload = msg.payload.concat('\\n');\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "5d147225600a2547"
+            ]
+        ]
+    },
+    {
+        "id": "8329fb1f0a611654",
+        "type": "inject",
+        "z": "fca61f181c35d364",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hello TCP!!!",
+        "payloadType": "str",
+        "x": 150,
+        "y": 100,
+        "wires": [
+            [
+                "4365352701bedd99"
+            ]
+        ]
+    },
+    {
+        "id": "5d147225600a2547",
+        "type": "tcp request",
+        "z": "fca61f181c35d364",
+        "server": "192.168.1.140",
+        "port": "2000",
+        "out": "char",
+        "splitc": "\\n",
+        "name": "TCP Request",
+        "x": 460,
+        "y": 100,
+        "wires": [
+            [
+                "ffba481a13336dbb"
+            ]
+        ]
+    },
+    {
+        "id": "925bd713e0a60017",
+        "type": "debug",
+        "z": "fca61f181c35d364",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ffba481a13336dbb",
+        "type": "function",
+        "z": "fca61f181c35d364",
+        "name": "toString",
+        "func": "msg.payload = msg.payload.toString();\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 100,
+        "wires": [
+            [
+                "925bd713e0a60017"
+            ]
+        ]
+    }
+]

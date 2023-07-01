@@ -1,0 +1,57 @@
+[
+    {
+        "id": "a1d1de61aec5d413",
+        "type": "tab",
+        "label": "Websocket",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9e75f9b6a6a51f43",
+        "type": "websocket out",
+        "z": "a1d1de61aec5d413",
+        "name": "Websocket Test",
+        "server": "",
+        "client": "ae9b8baf0b645938",
+        "x": 360,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "416735ea26be396a",
+        "type": "inject",
+        "z": "a1d1de61aec5d413",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Ciao da Raspberry!!!",
+        "payloadType": "str",
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "9e75f9b6a6a51f43"
+            ]
+        ]
+    },
+    {
+        "id": "ae9b8baf0b645938",
+        "type": "websocket-client",
+        "path": "wss://demo.piesocket.com/v3/ElettronicaIn?api_key=oCdCMcMPQpbvNjUIzqtvF1d2X2okWpDQj4AwARJuAgtjhzKxVEjQU6IdCjwm&notify_self",
+        "tls": "",
+        "wholemsg": "false",
+        "hb": "0"
+    }
+]

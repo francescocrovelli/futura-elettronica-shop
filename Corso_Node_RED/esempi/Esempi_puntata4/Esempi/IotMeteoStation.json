@@ -1,0 +1,350 @@
+[
+    {
+        "id": "7e92320bffe12e0e",
+        "type": "tab",
+        "label": "Esempio 6",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "21fdf96a1925d64e",
+        "type": "Bme280",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "bus": "1",
+        "address": "0x76",
+        "topic": "bme280",
+        "extra": true,
+        "x": 320,
+        "y": 180,
+        "wires": [
+            [
+                "c5e9200b3f59d96f",
+                "7fcde532c06eb18e",
+                "155b9f6ca61d4e9d",
+                "cd0f514b72601257"
+            ]
+        ]
+    },
+    {
+        "id": "dab7df88a112dd8d",
+        "type": "inject",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "21fdf96a1925d64e"
+            ]
+        ]
+    },
+    {
+        "id": "c5e9200b3f59d96f",
+        "type": "change",
+        "z": "7e92320bffe12e0e",
+        "name": "Set temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperature_C",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 180,
+        "wires": [
+            [
+                "055de0acf8798d18"
+            ]
+        ]
+    },
+    {
+        "id": "055de0acf8798d18",
+        "type": "ui_gauge",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "group": "a4d71b95a64482ea",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "80",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 910,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "7fcde532c06eb18e",
+        "type": "change",
+        "z": "7e92320bffe12e0e",
+        "name": "Set Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 240,
+        "wires": [
+            [
+                "0f9be3f835e8780b"
+            ]
+        ]
+    },
+    {
+        "id": "4009436c598990c1",
+        "type": "ui_gauge",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "group": "a4d71b95a64482ea",
+        "order": 2,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 900,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "155b9f6ca61d4e9d",
+        "type": "change",
+        "z": "7e92320bffe12e0e",
+        "name": "Set BPress",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.pressure_hPa",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 570,
+        "y": 300,
+        "wires": [
+            [
+                "be1ac67e07f50145"
+            ]
+        ]
+    },
+    {
+        "id": "964c8697d4b76b48",
+        "type": "ui_gauge",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "group": "a4d71b95a64482ea",
+        "order": 3,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Pressure",
+        "label": "hPa",
+        "format": "{{value}}",
+        "min": "500",
+        "max": "1500",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 900,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "be1ac67e07f50145",
+        "type": "function",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 300,
+        "wires": [
+            [
+                "964c8697d4b76b48"
+            ]
+        ]
+    },
+    {
+        "id": "0f9be3f835e8780b",
+        "type": "function",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 240,
+        "wires": [
+            [
+                "4009436c598990c1"
+            ]
+        ]
+    },
+    {
+        "id": "5a445bacc9eb30ee",
+        "type": "ui_gauge",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "group": "a4d71b95a64482ea",
+        "order": 4,
+        "width": "6",
+        "height": "6",
+        "gtype": "gage",
+        "title": "Heat Index",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": "-20",
+        "max": "80",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 910,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cd0f514b72601257",
+        "type": "change",
+        "z": "7e92320bffe12e0e",
+        "name": "Set HeatIndex",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.heatIndex",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 580,
+        "y": 360,
+        "wires": [
+            [
+                "03a5168e5e9a9484"
+            ]
+        ]
+    },
+    {
+        "id": "03a5168e5e9a9484",
+        "type": "function",
+        "z": "7e92320bffe12e0e",
+        "name": "",
+        "func": "msg.payload = msg.payload.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 740,
+        "y": 360,
+        "wires": [
+            [
+                "5a445bacc9eb30ee"
+            ]
+        ]
+    },
+    {
+        "id": "a4d71b95a64482ea",
+        "type": "ui_group",
+        "name": "MyGroup",
+        "tab": "d1d29b72d4d3d87a",
+        "order": 1,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "d1d29b72d4d3d87a",
+        "type": "ui_tab",
+        "name": "MyTab",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

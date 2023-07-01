@@ -1,0 +1,124 @@
+[
+    {
+        "id": "2fea720af3f1fbc2",
+        "type": "tab",
+        "label": "HTTP",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "df17287fb0633e31",
+        "type": "rpi-gpio out",
+        "z": "2fea720af3f1fbc2",
+        "name": "",
+        "pin": "37",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "x": 540,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e3b3fe03818f9301",
+        "type": "http in",
+        "z": "2fea720af3f1fbc2",
+        "name": "Relay ON",
+        "url": "/relay_on",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "62612d6d962c8a26",
+                "85c741dbd0107df0"
+            ]
+        ]
+    },
+    {
+        "id": "62612d6d962c8a26",
+        "type": "change",
+        "z": "2fea720af3f1fbc2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "df17287fb0633e31"
+            ]
+        ]
+    },
+    {
+        "id": "1752ec5e71d4bb6c",
+        "type": "http in",
+        "z": "2fea720af3f1fbc2",
+        "name": "Relay OFF",
+        "url": "/relay_off",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 140,
+        "y": 200,
+        "wires": [
+            [
+                "7dc69f55ac835bbd",
+                "85c741dbd0107df0"
+            ]
+        ]
+    },
+    {
+        "id": "7dc69f55ac835bbd",
+        "type": "change",
+        "z": "2fea720af3f1fbc2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 200,
+        "wires": [
+            [
+                "df17287fb0633e31"
+            ]
+        ]
+    },
+    {
+        "id": "85c741dbd0107df0",
+        "type": "http response",
+        "z": "2fea720af3f1fbc2",
+        "name": "",
+        "statusCode": "200",
+        "headers": {},
+        "x": 340,
+        "y": 140,
+        "wires": []
+    }
+]
