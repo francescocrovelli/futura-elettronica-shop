@@ -1,0 +1,17 @@
+function Decoder(bytes, port) {
+
+  var decoded = {};
+
+  decoded.t1 = bytes[0];
+  decoded.t2 = bytes[1];
+  decoded.h1 = bytes[2];
+  decoded.h2 = bytes[3];
+  decoded.l1 = bytes[4];
+  decoded.l2 = bytes[5];
+  return decoded;
+}
+
+function Converter(decoded, port) {
+
+  return decoded;
+}

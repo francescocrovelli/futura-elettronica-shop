@@ -1,0 +1,25 @@
+var obj = 
+{ 0:msg.payload.t1,
+  1:msg.payload.t2,
+  2:msg.payload.h1,
+  3:msg.payload.h2,
+  4:msg.payload.l1,
+  5:msg.payload.l2
+    
+}
+  var result = Object.keys(obj).map(function(key)
+  {
+      return [Number(key), obj[key]];
+});
+      
+var res_temp = result[1].slice(1);
+var res_humi = result[3].slice(1);
+var res_light = result[5].slice(1);
+console.log("Temp",res_temp);
+console.log("Humi",res_humi);
+console.log("Light",res_light);
+
+var msg1 = { payload:res_temp };
+var msg2 = { payload:res_humi };
+var msg3 = { payload:res_light };
+return [ [msg1], msg2,msg3];
